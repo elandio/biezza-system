@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Bem vindo ao Gerenciador de Pedidos para o Biezza!</title>
+        <link type="text/css" rel="stylesheet" href="south-street/skin.css"/>
+    </h:head>
+    <h:body style="background-image:url('http://hypescience.com/wp-content/uploads/2010/05/fast-food.jpg');background-position: 50% 0%;background-repeat: no-repeat">
+        <p:dialog header="Cadastro de Usuario" widgetVar="dialogGerUsuario" resizable="false" modal="true" showEffect="slide" width="500">
+            <h:form prependId="false">
+                <h:panelGrid id="infosUsuario" columns="2" style="margin-bottom:10px">
+ 
+                    <h:outputLabel for="cliente" value="Nome d Cliente:*" />
+                    <h:inputText id="cliente" value="#{clienteController.cliente.nmCliente}" required="true" requiredMessage="campo obrigatorio"/>
+                    
+                    <h:outputLabel for="usuario" value="Nome de Usuario:*" />
+                    <h:inputText id="usuario" value="#{clienteController.usuario.username}" required="true" requiredMessage="campo obrigatorio"/>
+  
+                    <h:outputLabel for="senha" value="Senha:*" />
+                    <h:inputSecret id="senha" value="#{clienteController.usuario.password}" required="true" requiredMessage="campo obrigatorio" maxlength="8"/>
+                    
+                    <h:outputLabel for="ramal" value="Ramal:" />
+                    <h:inputText id="ramal" value="#{clienteController.cliente.ramal}" maxlength="4" validator="validaCampoNumerico"/>
+                    
+                    <h:outputLabel for="setor" value="Setor:*" />
+                    <h:selectOneMenu id="setor" value="#{clienteController.cliente.localTrabalho.cdLocalTrabalho}" required="true" requiredMessage="campo obrigatorio">
+                        <f:selectItem itemLabel="Desenvolvimento" itemValue="1"/>
+                    </h:selectOneMenu>
+                    
+                    <p:commandButton actionListener="#{clienteController.adicionarCliente}" value="Salvar"/>
+ 
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+     </h:body>
+</html>
+
