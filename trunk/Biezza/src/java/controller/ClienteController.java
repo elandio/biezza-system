@@ -6,6 +6,7 @@ package controller;
 
 import dao.UsuarioDao;
 import dao.UsuarioDaoImp;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
@@ -19,7 +20,7 @@ import model.Usuario;
 
 @ManagedBean
 @SessionScoped
-public class ClienteController {
+public class ClienteController implements Serializable {
     
     private Cliente cliente;
     private Usuario usuario;
@@ -32,10 +33,9 @@ public class ClienteController {
         usuarioDao.save(usuario);
     }
     
-    public String prepararAdicionarCliente() {
+    public void prepararAdicionarCliente(ActionEvent actionEvent) {
         cliente = new Cliente();
         usuario = new Usuario();
-        return "cadastroUsuario";
     }
 
     /**
