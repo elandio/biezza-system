@@ -18,7 +18,7 @@ and open the template in the editor.
             <h:form prependId="false">
                 <h:panelGrid id="infosUsuario" columns="2" style="margin-bottom:10px">
  
-                    <h:outputLabel for="cliente" value="Nome d Cliente:*" />
+                    <h:outputLabel for="cliente" value="Nome do Cliente:*" />
                     <h:inputText id="cliente" value="#{clienteController.cliente.nmCliente}" required="true" requiredMessage="campo obrigatorio"/>
                     
                     <h:outputLabel for="usuario" value="Nome de Usuario:*" />
@@ -35,7 +35,7 @@ and open the template in the editor.
                         <f:selectItem itemLabel="Desenvolvimento" itemValue="1"/>
                     </h:selectOneMenu>
                     
-                    <p:commandButton actionListener="#{clienteController.adicionarCliente}" value="Salvar"/>
+                    <p:commandButton actionListener="#{clienteController.prepararAdicionarCliente}" value="Salvar"/>
  
                 </h:panelGrid>
             </h:form>
